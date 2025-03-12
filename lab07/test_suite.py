@@ -14,8 +14,8 @@ mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 
 #PIN definition
 LED_PIN = 11 
-LIGHT_SENSOR_CHANNEL = 1   #//// /////////
-SOUND_SENSOR_CHANNEL = 2   #///////////  
+LIGHT_SENSOR_CHANNEL = 0   #//// /////////
+SOUND_SENSOR_CHANNEL = 1   #///////////  
 
 # by taking readings and printing them out, find
 # appropriate threshold levels and set them 
@@ -48,7 +48,7 @@ def read_sound_sensor(duration, interval):
     print("Volume: %d" %(sound_value))
     if sound_value > lux_threshold:
       GPIO.output(LED_PIN, GPIO.HIGH)
-      time.sleep(1)
+      time.sleep(0.1)
       
 
 
@@ -64,9 +64,10 @@ while True:
   # mcp.read_adc(adc_channel)
 
   #test case
-  blink_led(4, 2)
-  read_light_sensor()
-  read_sound_sensor()
+  blink_led(5, 0.5)
+  read_light_sensor(5, 0.1)
+  blink_led(4, 0.2)
+  read_sound_sensor(5, 0.1)
   
 
   
