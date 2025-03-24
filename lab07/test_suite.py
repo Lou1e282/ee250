@@ -8,8 +8,8 @@ GPIO.setmode(GPIO.BOARD)
 
 # PIN Definitions
 LED_PIN = 11
-LIGHT_SENSOR_CHANNEL = 1  # manually inserted the sig wire to Ch01
-SOUND_SENSOR_CHANNEL = 2  # manual insert to Ch02
+LIGHT_SENSOR_CHANNEL = 0
+SOUND_SENSOR_CHANNEL = 1
 
 # LED o/p setup
 GPIO.setup(LED_PIN, GPIO.OUT)
